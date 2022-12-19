@@ -1,13 +1,31 @@
+/**
+ * makeBlinkyDancer inherits from makeDancer and ...
+ *
+ * INHERITED METHODS
+ * from dancer.js - .setPosition()
+ *
+ * METHODS
+ * .step() - (override) calls the inherited version of step() and
+ * toggles (show/hides) itself
+ *
+ * @param {*} top
+ * @param {*} left
+ * @param {*} timeBetweenSteps  - time in ms scheduling the new step
+ * @returns a blinkyDancer
+ */
+
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
 
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
+  // we plan to overwrite the step function below, but we still
+  // want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
 
   var oldStep = blinkyDancer.step;
 
   blinkyDancer.step = function() {
-    // call the old version of step at the beginning of any call to this new version of step
+    // call the old version of step at the beginning of any call
+    // to this new version of step
     oldStep();
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and

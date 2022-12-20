@@ -20,14 +20,14 @@
  */
 
 var BouncyDancer = function(top, left, timeBetweenSteps) {
-  this.timeBetweenSteps = Math.random() * (30 - 10) + 10;
+  timeBetweenSteps = Math.random() * (30 - 10) + 10;
   this.oldStep = Dancer.prototype.step;
-  Dancer.call(this, top, left, this.timeBetweenSteps);
+  Dancer.call(this, top, left, timeBetweenSteps);
   this.boundsY = $('body').height() - 20;
   this.boundsX = $('body').width() - 20;
   this.directionY = Math.random() < 0.5 ? true : false;
   this.directionX = Math.random() < 0.5 ? true : false;
-  this.$node.css('border-color', 'MediumSpringGreen')
+  this.$node.addClass('bouncy');
 };
 
 BouncyDancer.prototype = Object.create(Dancer.prototype);

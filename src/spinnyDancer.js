@@ -16,11 +16,14 @@
 
 var SpinnyDancer = function(top, left, timeBetweenSteps) {
   this.oldStep = Dancer.prototype.step;
+  timeBetweenSteps = 1000;
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass('spinny');
-  this.speed = Math.random() * (3000 - 500) + 500;
-  this.$node.css('animation-duration', `${this.speed}ms`);
-
+  this.$node = $('<img class="dancer">');
+  this.$node.attr('src', 'assets/spinny.webp')
+  this.$node.css('width', '100px');
+  this.setPosition(top, left);
+  this.$node.css('animation', 'spin ' + this.timeBetweenSteps + 'ms linear 0s infinite');
+  this.spinCount = 0;
 };
 
 SpinnyDancer.prototype = Object.create(Dancer.prototype);
@@ -28,4 +31,8 @@ SpinnyDancer.prototype.constructor = SpinnyDancer;
 
 SpinnyDancer.prototype.step = function() {
   this.oldStep.call(this);
+  if (this.$node.css('animation-play-state') === 'paused') {
+    this.$node.css('animation-play-state', 'running');
+  }
+  this.spinCount++;
 };

@@ -18,6 +18,9 @@ var SpinnyDancer = function(top, left, timeBetweenSteps) {
   this.oldStep = Dancer.prototype.step;
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('spinny');
+  this.speed = Math.random() * (3000 - 500) + 500;
+  this.$node.css('animation-duration', `${this.speed}ms`);
+
 };
 
 SpinnyDancer.prototype = Object.create(Dancer.prototype);

@@ -27,6 +27,7 @@ var BouncyDancer = function(top, left, timeBetweenSteps) {
   this.boundsX = $('body').width() - 20;
   this.directionY = Math.random() < 0.5 ? true : false;
   this.directionX = Math.random() < 0.5 ? true : false;
+  this.$node.css('border-color', 'MediumSpringGreen')
 };
 
 BouncyDancer.prototype = Object.create(Dancer.prototype);

@@ -15,9 +15,9 @@
  */
 
 var BouncyDancer = function(top, left, timeBetweenSteps) {
+  this.timeBetweenSteps = Math.random() * (30 - 10) + 10;
   this.oldStep = Dancer.prototype.step;
-  Dancer.call(this, top, left, timeBetweenSteps);
-  this.timeBetweenSteps = 10;
+  Dancer.call(this, top, left, this.timeBetweenSteps);
   this.boundsY = $('body').height() - 20;
   this.boundsX = $('body').width() - 20;
   this.directionY = Math.random() < 0.5 ? true : false;

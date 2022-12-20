@@ -23,8 +23,12 @@ var BouncyDancer = function(top, left, timeBetweenSteps) {
   timeBetweenSteps = Math.random() * (30 - 10) + 10;
   this.oldStep = Dancer.prototype.step;
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.boundsY = $('body').height() - 20;
-  this.boundsX = $('body').width() - 20;
+  this.$node = $('<img class="dancer bouncy">');
+  this.$node.attr('src', 'assets/bouncy.png')
+  this.$node.css('width', '100px');
+  this.setPosition(top, left);
+  this.boundsY = $('body').height() - 100;
+  this.boundsX = $('body').width() - 100;
   this.directionY = Math.random() < 0.5 ? true : false;
   this.directionX = Math.random() < 0.5 ? true : false;
   this.$node.addClass('bouncy');
@@ -35,6 +39,11 @@ BouncyDancer.prototype.constructor = BouncyDancer;
 
 BouncyDancer.prototype.step = function() {
   this.oldStep.call(this);
+  if (this.directionX) {
+    this.$node.css('transform', 'scaleX(-1)');
+  } else {
+    this.$node.css('transform', 'scaleX(1)');
+  }
   var newX = this._updateCoord.call(this, this.$node.position().left,
     this.boundsX, this.directionX, 'x');
   var newY = this._updateCoord.call(this, this.$node.position().top,
@@ -67,6 +76,7 @@ BouncyDancer.prototype._updateCoord = function(coord, bound, direction, axis) {
 BouncyDancer.prototype._changeDirection = function (axis) {
   if (axis === 'x') {
     this.directionX = !this.directionX;
+    this.$node.css('transform', 'scaleX(-1)');
   } else if (axis === 'y') {
     this.directionY = !this.directionY;
   }

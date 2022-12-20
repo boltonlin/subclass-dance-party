@@ -24,18 +24,6 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
-.blinky{
-  border:10px solid;
-  border-radius:10px;
-  border-color: red;
-}
-
-.bouncy{
-  border: 10px solid;
-  border-radius:10px;
-  border-color: mediumspringgreen;
-}
-
 @keyframes spin {
     from {
         transform:rotate(0deg);

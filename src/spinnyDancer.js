@@ -23,6 +23,7 @@ var SpinnyDancer = function(top, left, timeBetweenSteps) {
   this.$node.css('width', '100px');
   this.setPosition(top, left);
   this.$node.css('animation', 'spin ' + this.timeBetweenSteps + 'ms linear 0s infinite');
+  this.$node.css('animation-play-state', 'paused');
   this.spinCount = 0;
 };
 
@@ -33,6 +34,7 @@ SpinnyDancer.prototype.step = function() {
   this.oldStep.call(this);
   if (this.$node.css('animation-play-state') === 'paused') {
     this.$node.css('animation-play-state', 'running');
+  } else {
+    this.spinCount++;
   }
-  this.spinCount++;
 };

@@ -17,6 +17,7 @@
 var SpinnyDancer = function(top, left, timeBetweenSteps) {
   this.oldStep = Dancer.prototype.step;
   Dancer.call(this, top, left, timeBetweenSteps);
+  this.$node.addClass('spinny');
 };
 
 SpinnyDancer.prototype = Object.create(Dancer.prototype);
@@ -24,5 +25,4 @@ SpinnyDancer.prototype.constructor = SpinnyDancer;
 
 SpinnyDancer.prototype.step = function() {
   this.oldStep.call(this);
-  this.$node.toggle();
 };

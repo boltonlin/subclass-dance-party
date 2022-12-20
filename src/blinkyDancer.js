@@ -15,7 +15,7 @@
  */
 
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
-  this.oldStep = Dancer.prototype.step;
+  this.oldStep = Dancer.prototype.step.bind(this);
   Dancer.call(this, top, left, timeBetweenSteps);
 };
 

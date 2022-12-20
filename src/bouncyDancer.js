@@ -7,6 +7,11 @@
  * METHODS
  * .step() - (override) calls the inherited version of step() to set
  * a timer, then toggles (show/hides) itself
+ * ._updateCoord(coord, bound, direction, axis) - gives a new coordinate point
+ * for given axis and changes direction if new coordinate would push it out of
+ * bounds
+ * ._changeDirection(axis) - given axis will change the boolean that determines
+ * where the dancer is heading
  *
  * @param {*} top
  * @param {*} left
@@ -29,8 +34,10 @@ BouncyDancer.prototype.constructor = BouncyDancer;
 
 BouncyDancer.prototype.step = function() {
   this.oldStep.call(this);
-  var newX = this._updateCoord.call(this, this.$node.position().left, this.boundsX, this.directionX, 'x');
-  var newY = this._updateCoord.call(this, this.$node.position().top, this.boundsY, this.directionY, 'y');
+  var newX = this._updateCoord.call(this, this.$node.position().left,
+    this.boundsX, this.directionX, 'x');
+  var newY = this._updateCoord.call(this, this.$node.position().top,
+    this.boundsY, this.directionY, 'y');
   this.$node.css('top', newY);
   this.$node.css('left', newX);
 };

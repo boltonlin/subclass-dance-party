@@ -2,7 +2,7 @@
  * BlinkyDancer inherits from Dancer and defines its 'step' as toggling
  *
  * INHERITED METHODS
- * from dancer.js - .setPosition()
+ * .setPosition(top, left) - sets position of the html element
  *
  * METHODS
  * .step() - (override) calls the inherited version of step() to set
@@ -11,7 +11,7 @@
  * @param {*} top
  * @param {*} left
  * @param {*} timeBetweenSteps  - time in ms scheduling the new step
- * @returns a blinkyDancer
+ * @returns a BlinkyDancer
  */
 
 var BlinkyDancer = function(top, left, timeBetweenSteps) {

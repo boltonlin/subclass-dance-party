@@ -39,8 +39,7 @@ BouncyDancer.prototype.step = function() {
     this.boundsX, this.directionX, 'x');
   var newY = this._updateCoord.call(this, this.$node.position().top,
     this.boundsY, this.directionY, 'y');
-  this.$node.css('top', newY);
-  this.$node.css('left', newX);
+  this.setPosition(newY, newX);
 };
 
 // if y true, node is going down

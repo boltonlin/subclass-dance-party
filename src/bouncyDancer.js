@@ -43,6 +43,10 @@ BouncyDancer.prototype.step = function() {
   this.$node.css('left', newX);
 };
 
+// if y true, node is going down
+// if y false, node is going up
+// if x true, node is going right
+// if x false, node is going left
 BouncyDancer.prototype._updateCoord = function(coord, bound, direction, axis) {
   if (direction) {
     if (coord + 10 <= bound) {

@@ -16,8 +16,13 @@
 
 var BlinkyDancer = function(top, left, timeBetweenSteps) {
   this.oldStep = Dancer.prototype.step.bind(this);
+  timeBetweenSteps = Math.random() * (1000 - 200) + 200;
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass('blinky');
+  this.$node = $('<img class="dancer blinky">');
+  this.$node.attr('src', 'assets/blinky0.png')
+  this.$node.css('width', '100px');
+  this.setPosition(top, left);
+  this.displayCount = 0;
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
@@ -26,4 +31,12 @@ BlinkyDancer.prototype.constructor = BlinkyDancer;
 BlinkyDancer.prototype.step = function() {
   this.oldStep.call(this);
   this.$node.toggle();
+  if (this.$node.css('display') !== 'none') {
+    this.displayCount++;
+  }
+  if (this.displayCount % 2 === 0) {
+    this.$node.attr('src', 'assets/blinky0.png');
+  } else {
+    this.$node.attr('src', 'assets/blinky1.png');
+  }
 };

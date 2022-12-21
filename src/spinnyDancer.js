@@ -24,8 +24,9 @@ var SpinnyDancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
   this.height = 100;
   this.width = 100;
-  this.$node.css('animation', 'spin ' + this.timeBetweenSteps + 'ms linear 0s infinite');
-  this.$node.css('animation-play-state', 'paused');
+  this.animation = 'spin ' + this.timeBetweenSteps + 'ms linear 0s infinite';
+  this.animationSpeed = this.timeBetweenSteps;
+  this.$node.css('animation', this.animation);
   this.spinCount = 0;
 };
 

@@ -36,3 +36,28 @@ Dancer.prototype.setPosition = function(top, left) {
   this.left = left;
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.lineUp = function() {
+  if (this.$node.hasClass('lineDancer off')) {
+    this.$node.removeClass('off');
+  }
+  if (!!this.animation) {
+    var savedAnimation = this.animation;
+    var savedSpeed = this.animationSpeed;
+    var toRestore = true;
+    this.$node.css('animation-name', 'none');
+  }
+  console.log(this.$node.css('animation'));
+  this.$node.addClass('lineDancer');
+  this.$node.css('animation-name', 'lineUp');
+  console.log(this.$node.css('animation'));
+  this.$node.css('animation-duration', (this.timeBetweenSteps) + 'ms');
+  setTimeout(() => {
+    this.setPosition(this.top, 0);
+    this.$node.addClass('off');
+    if (toRestore) {
+      this.$node.css('animation', savedAnimation);
+      this.$node.css('animation-duration', savedSpeed);
+    }
+  }, this.timeBetweenSteps);
+};

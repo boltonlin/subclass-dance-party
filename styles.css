@@ -13,6 +13,10 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.title, .lineUpButton{
+  padding:5px 12px;
+  float:right;
+}
 .topbar{
   height:32px;
   background-color: #555;
@@ -25,11 +29,27 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
+.lineDancer{
+  animation-name: lineUp;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+.lineDancer.off{
+  animation-name: none;
+}
+
 @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+}
+
+@keyframes lineUp {
+  to {
+    left: 0px;
+  }
 }

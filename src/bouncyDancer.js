@@ -25,10 +25,11 @@ var BouncyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node = $('<img class="dancer bouncy">');
   this.$node.attr('src', 'assets/bouncy.png')
-  this.$node.css('width', '100px');
   this.setPosition(top, left);
-  this.boundsY = $('body').height() - 100;
-  this.boundsX = $('body').width() - 100;
+  this.height = 100;
+  this.width = 100;
+  this.boundsY = $('body').height() - this.height;
+  this.boundsX = $('body').width() - this.width;
   this.directionY = Math.random() < 0.5 ? true : false;
   this.directionX = Math.random() < 0.5 ? true : false;
   this.$node.addClass('bouncy');

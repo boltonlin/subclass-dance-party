@@ -20,8 +20,9 @@ var BlinkyDancer = function(top, left, timeBetweenSteps) {
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node = $('<img class="dancer blinky">');
   this.$node.attr('src', 'assets/blinky0.png')
-  this.$node.css('width', '100px');
   this.setPosition(top, left);
+  this.height = 100;
+  this.width = 100;
   this.displayCount = 0;
 };
 

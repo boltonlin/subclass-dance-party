@@ -18,10 +18,12 @@ var SpinnyDancer = function(top, left, timeBetweenSteps) {
   this.oldStep = Dancer.prototype.step;
   timeBetweenSteps = Math.random() * (3000 - 500) + 500;
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<img class="dancer">');
+  this.$node = $('<img class="dancer spinny">');
   this.$node.attr('src', 'assets/spinny.webp')
   this.$node.css('width', '100px');
   this.setPosition(top, left);
+  this.height = 100;
+  this.width = 100;
   this.$node.css('animation', 'spin ' + this.timeBetweenSteps + 'ms linear 0s infinite');
   this.$node.css('animation-play-state', 'paused');
   this.spinCount = 0;

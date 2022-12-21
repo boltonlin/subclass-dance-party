@@ -17,6 +17,8 @@ var Dancer = function(top, left, timeBetweenSteps) {
   this.top = top;
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
+  this.height = undefined;
+  this.width = undefined;
   this.step();
   this.setPosition(top, left);
 };
